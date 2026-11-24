@@ -34,7 +34,7 @@ Her şey bilgisayarınızda çalışır. Ekran kartı, hesap, API anahtarı ya d
 
 | Parça | Görevi |
 |---|---|
-| **Python 3.11–3.13** | Programın dili. |
+| **Python 3.11+** | Programın dili (önerilen 3.13). |
 | **[Ahenk Cep](https://huggingface.co/ozgurguler/ahenk-cep-tr)** | Türkçe metinden ses üreten yapay zekâ modeli. 8,6 milyon parametreli, ~35 MB. İşlemcide (CPU) çalışır. Tek bir kadın sesi vardır ("f022", gerçek bir kişiye ait değildir). |
 | **[trnorm](https://github.com/ozguradmin/ahenk-turkish-tts)** | Türkçe metni okunuş hâline çevirir: `1.250 TL` → "bin iki yüz elli lira", `14.10.2026` → tarih okunuşu vb. |
 | **[PyTorch](https://pytorch.org) (CPU)** | Modeli çalıştıran motor. Yalnız işlemci sürümü kurulur, ekran kartı sürücüsü gerekmez. |
@@ -45,8 +45,11 @@ Her şey bilgisayarınızda çalışır. Ekran kartı, hesap, API anahtarı ya d
 ## Gereksinimler
 
 - **Windows 10 / 11**
-- **Python 3.11, 3.12 ya da 3.13**: [python.org/downloads](https://www.python.org/downloads/)
-  (kurarken "Add python.exe to PATH" kutusunu işaretleyin)
+- **Python 3.11 ya da daha yenisi** (önerilen: 3.13):
+  [python.org/downloads](https://www.python.org/downloads/)
+  (kurarken "Add python.exe to PATH" kutusunu işaretleyin). Çok yeni bir
+  Python sürümü için PyTorch henüz yayınlanmamış olabilir. O durumda 3.13
+  kurun.
 - **Git**: [git-scm.com](https://git-scm.com) ya da `winget install Git.Git`
 - **~1,5 GB boş disk** (PyTorch, model ve FFmpeg)
 - **4 GB RAM** yeterli. Ekran kartı gerekmez. Bu araç 4 GB RAM'li, i3
@@ -73,7 +76,9 @@ C:\ebabil\kur.bat
 
 `kur.bat` şunları yapar:
 
-1. Git ve Python'u bulur (3.13 → 3.12 → 3.11 sırasıyla dener).
+1. Git ve Python'u bulur. Önce denenmiş sürümlere bakar (3.13 → 3.12 →
+   3.14 → 3.11), hiçbiri yoksa kurulu en yeni Python 3.11+ sürümünü uyarıyla
+   kullanır.
 2. Klasörün içine ayrı bir Python ortamı (`.venv`) kurar. Bilgisayardaki ana
    Python'a dokunmaz.
 3. Gerekli paketleri `requirements.txt`'ten kurar (PyTorch'un CPU sürümü dahil).
@@ -356,7 +361,7 @@ olmuyorsa PATH'i denetleyin:
 `.venv` klasörü yok. `kur.bat`'ı çalıştırın.
 
 **`kur.bat`: "Python bulunamadi"**
-Python 3.11–3.13 kurun. Python kurulu olduğu hâlde `python` yazınca
+Python 3.11 ya da daha yenisini (önerilen 3.13) kurun. Python kurulu olduğu hâlde `python` yazınca
 "Python bulunamadı" çıkıyorsa bu, Windows'un Microsoft Store kısayoludur:
 *Ayarlar → Uygulamalar → Gelişmiş uygulama ayarları → Uygulama yürütme
 takma adları* bölümünde `python.exe` ve `python3.exe`'yi kapatın.
