@@ -18,8 +18,17 @@ C:\ebabil\kur.bat
 ```
 
 `kur.bat` Python ortamını (`.venv`) kurar, ffmpeg yoksa winget ile kurar ve
-ses modelini (~35 MB) indirir. Her klasörden `ebabil` yazabilmek için
-`C:\ebabil` klasörünü PATH'e ekleyin.
+ses modelini (~35 MB) indirir.
+
+Her klasörden `ebabil` yazabilmek için `C:\ebabil` klasörünü PATH'e ekleyin
+(PowerShell'de bir kez çalıştırın):
+
+```
+[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path','User') + ';C:\ebabil', 'User')
+```
+
+Ardından terminali kapatıp yeniden açın; açık pencereler yeni PATH'i görmez
+(VS Code içindeki terminal için VS Code'u yeniden başlatın).
 
 ## Seslendirme
 
